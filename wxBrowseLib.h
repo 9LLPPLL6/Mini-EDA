@@ -2,20 +2,22 @@
 #include <wx/dir.h>
 #include "mySchemaFrame.h"
 #include "draw_symbol.h"
-#include "MyPanel.h"
+#include "canvas.h"
 
 class ComponentBrowser : public wxDialog {
 public:
-    ComponentBrowser(wxWindow* parent, const wxString& title, MyPanel* myPanel)
+    ComponentBrowser(wxWindow* parent, const wxString& title, CanvasPanel* myPanel)
         : wxDialog(parent, wxID_ANY, title, wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE) {
 
         // 创建可滚动列表
         listBox = new wxListBox(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0, nullptr, wxLB_EXTENDED);
 
         // 向列表中添加一些示例数据
-        fillInBrowseDir(directoryPath, listBox);
-        /*listBox->Bind(wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, &ComponentBrowser::OnListBoxItemSelection, this);*/
+        
+        fillInBrowseDir(listBox);
+        listBox->Bind(wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, &ComponentBrowser::OnListBoxItemSelection, this);
         Connect(wxEVT_COMMAND_LISTBOX_DOUBLECLICKED, wxCommandEventHandler(ComponentBrowser::OnListBoxItemSelection));
+        
 
         // 创建布局
         wxBoxSizer* sizer = new wxBoxSizer(wxVERTICAL);
@@ -27,15 +29,12 @@ public:
         Centre();
     }
 
-    void setDidirectoryPath(wxString directoryPath) {
-        this->directoryPath = directoryPath;
-    }
 
 private:
-    wxString directoryPath = "E:/recruit/Glimmer-Homepage/images";
-    MyPanel* myPanel;
+    CanvasPanel* myPanel;
     wxListBox* listBox;
 
+    
     void OnListBoxItemSelection(wxCommandEvent& event) {
 
         // 获取选中的列表项索引
@@ -51,10 +50,10 @@ private:
         myPanel->Refresh();
 
         // 弹出 wxMessageBox
-        /*wxMessageBox(wxString::Format("%s导入成功", selectedText), "Selection", wxOK | wxICON_INFORMATION, this);*/
+        wxMessageBox(wxString::Format("%s导入成功", selectedText), "Selection", wxOK | wxICON_INFORMATION, this);
     }
 
-    void fillInBrowseDir(wxString directoryPath, wxListBox* listBox) {
+    void fillInBrowseDir(wxListBox* listBox) {
         /*
         wxDir dir(directoryPath);
         if (dir.IsOpened()) {
@@ -71,7 +70,7 @@ private:
         }
         */
         listBox->Append("4009_UnitA");
-        listBox->Append("C");
-        listBox->Append("D");
+        
     }
+    
 };

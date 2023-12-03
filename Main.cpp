@@ -1,9 +1,9 @@
 #include <wx/wx.h>
 #include <wx/artprov.h>
 
-#include "include/draw_symbol.h"
-#include "include/wxBrowseLib.h"
-#include "include/mySchemaFrame.h"
+#include "draw_symbol.h"
+#include "wxBrowseLib.h"
+#include "mySchemaFrame.h"
 
 class MyApp : public wxApp
 {

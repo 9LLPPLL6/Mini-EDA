@@ -18,24 +18,24 @@
     <ClCompile Include="Main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="include\draw_symbol.cpp">
+    <ClCompile Include="draw_symbol.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="include\mySchemaFrame.cpp">
+    <ClCompile Include="mySchemaFrame.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\draw_symbol.h">
+    <ClInclude Include="draw_symbol.h">
       <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\wxBrowseLib.h">
+    <ClInclude Include="mySchemaFrame.h">
       <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\mySchemaFrame.h">
+    <ClInclude Include="wxBrowseLib.h">
       <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="include\MyPanel.h">
+    <ClInclude Include="canvas.h">
       <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>

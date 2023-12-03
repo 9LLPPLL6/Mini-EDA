@@ -5,7 +5,7 @@
 
 #include "draw_symbol.h"
 #include "wxBrowseLib.h"
-#include "MyPanel.h"
+#include "canvas.h"
 
 class MySchemaFrame : public wxFrame
 {
@@ -42,7 +42,7 @@ public:
 
         SetMenuBar(menuBar);
 
-        MyPanel* panel = new MyPanel(this);
+        CanvasPanel* panel = new CanvasPanel(this);
         myPanel = panel;
 
         wxBoxSizer* mainSizer = new wxBoxSizer(wxHORIZONTAL);
@@ -91,7 +91,7 @@ public:
     }
 private:
     wxString schFileName = "Mysch.sch";
-    MyPanel* myPanel;
+    CanvasPanel* myPanel;
 
     void OnImportButtonClick(wxCommandEvent& event);
 };
